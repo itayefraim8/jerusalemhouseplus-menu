@@ -186,7 +186,7 @@ const i18n = {
     "notice.service":"תשומת ליבכם: המחירים בתפריט אינם כוללים דמי שירות בשיעור של 10% אשר יתווספו לסכום הכולל של ההזמנה",
     "notice.pitaTime":"כל המנות בפיתה שלנו נמכרות עד השעה 20:00 או עד גמר המלאי",
 
-    "footer.tagline":"טעמים שמרגישים בבית",
+    "footer.tagline":"טעמים שמרגישים בית",
     "footer.hoursTitle":"שעות פעילות",
     "footer.hours.sun":"יום ראשון 11:00 - 22:00",
     "footer.hours.mon":"יום שני 11:00 - 22:00",
@@ -415,7 +415,7 @@ const i18n = {
     "notice.service":"Please note: menu prices do not include a 10% service charge, which will be added to the final bill.",
     "notice.pitaTime":"All our pita dishes are available until 20:00 or while stock lasts.",
 
-    "footer.tagline":"Flavors that feel like home",
+    "footer.tagline":"Flavors that feel home",
     "footer.hoursTitle":"Opening Hours",
     "footer.hours.sun":"Sunday 11:00 - 22:00",
     "footer.hours.mon":"Monday 11:00 - 22:00",
@@ -636,7 +636,7 @@ const i18n = {
     "notice.service":"Обратите внимание: цены в меню не включают сервисный сбор 10%, который будет добавлен к итоговой сумме заказа.",
     "notice.pitaTime":"Все блюда в пите доступны до 20:00 или пока есть в наличии.",
 
-    "footer.tagline":"Вкусы, как дома",
+    "footer.tagline":"Вкусы, дома",
     "footer.hoursTitle":"Часы работы",
     "footer.hours.sun":"Воскресенье 11:00 - 22:00",
     "footer.hours.mon":"Понедельник 11:00 - 22:00",
@@ -848,7 +848,7 @@ const i18n = {
     "notice.service":"გთხოვთ გაითვალისწინოთ: მენიუს ფასებში არ შედის 10% მომსახურების საფასური, რომელიც დაემატება შეკვეთის საბოლოო თანხას.",
     "notice.pitaTime":"ყველა ჩვენი პიტას კერძი იყიდება 20:00-მდე ან მარაგის ამოწურვამდე.",
 
-    "footer.tagline":"გემო, როგორც სახლში",
+    "footer.tagline":"არომატები, რომლებიც თავს სახლშივით გრძნობთ",
     "footer.hoursTitle":"სამუშაო საათები",
     "footer.hours.sun":"კვირა 11:00 - 22:00",
     "footer.hours.mon":"ორშაბათი 11:00 - 22:00",
