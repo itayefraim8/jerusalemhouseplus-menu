@@ -775,3 +775,53 @@ img{max-width:100%;display:block}
   position: static;
   top: auto;
 }
+
+/* =====================================================
+   ✅ ICONS ADDITIONS (no deletions)
+   ===================================================== */
+
+/* visually-hidden helper (keeps content in DOM, not deleted) */
+.u-visuallyHidden{
+  position:absolute !important;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* hide long URL text in social buttons (kept in HTML, not deleted) */
+.social__text{
+  display:none;
+}
+
+/* unified svg icon sizing */
+.icon{
+  width:22px;
+  height:22px;
+  display:block;
+}
+
+.icon--social{
+  width:20px;
+  height:20px;
+}
+
+.icon--phone{
+  width:18px;
+  height:18px;
+  opacity:.95;
+}
+
+/* ensure social buttons stay perfect circle with icon centered */
+.social{
+  place-items:center;
+}
+
+/* footer contact line aligns icon + text nicely */
+.footer__contactItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}

@@ -83,7 +83,11 @@
 
   <!-- WhatsApp Floating -->
   <a id="whatsAppBtn" class="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <span class="whatsapp__icon" aria-hidden="true">✆</span>
+    <!-- ✅ Icon upgraded to SVG (kept old ✆ inside for fallback, but hidden visually) -->
+    <span class="whatsapp__icon" aria-hidden="true">
+      <img class="icon icon--whatsapp" src="images/icons/whatsapp.svg" alt="" />
+      <span class="u-visuallyHidden">✆</span>
+    </span>
     <span class="whatsapp__text" data-i18n="whatsapp.cta">הזמנת מקום</span>
   </a>
 
@@ -112,9 +116,29 @@
         <p class="footer__tagline" data-i18n="footer.tagline">טעמים שמרגישים בבית</p>
 
         <div class="footer__social">
-          <a class="social" href="#" target="_blank" rel="noopener" aria-label="Facebook">https://www.facebook.com/profile.php?id=100063354483400&mibextid=wwXIfr&rdid=tC9X3DIqIW0yjp5M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F185uzKSg3V%2F%3Fmibextid%3DwwXIfr#</a>
-          <a class="social" href="#" target="_blank" rel="noopener" aria-label="Instagram">https://www.instagram.com/jerusalem_house_plus/</a>
-          <a class="social" id="footerWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+          <!-- ✅ Facebook -->
+          <a class="social" href="https://www.facebook.com/profile.php?id=100063354483400&mibextid=wwXIfr&rdid=tC9X3DIqIW0yjp5M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F185uzKSg3V%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener" aria-label="Facebook">
+            <img class="icon icon--social" src="images/icons/facebook.svg" alt="" aria-hidden="true" />
+            <span class="u-visuallyHidden">Facebook</span>
+            <!-- kept original URL text (not deleted) -->
+            <span class="social__text">https://www.facebook.com/profile.php?id=100063354483400&mibextid=wwXIfr&rdid=tC9X3DIqIW0yjp5M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F185uzKSg3V%2F%3Fmibextid%3DwwXIfr#</span>
+          </a>
+
+          <!-- ✅ Instagram -->
+          <a class="social" href="https://www.instagram.com/jerusalem_house_plus/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img class="icon icon--social" src="images/icons/instagram.svg" alt="" aria-hidden="true" />
+            <span class="u-visuallyHidden">Instagram</span>
+            <!-- kept original URL text (not deleted) -->
+            <span class="social__text">https://www.instagram.com/jerusalem_house_plus/</span>
+          </a>
+
+          <!-- ✅ WhatsApp (footer) -->
+          <a class="social" id="footerWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <img class="icon icon--social" src="images/icons/whatsapp.svg" alt="" aria-hidden="true" />
+            <span class="u-visuallyHidden">WhatsApp</span>
+            <!-- kept original symbol (not deleted) -->
+            <span class="social__text">✆</span>
+          </a>
         </div>
       </div>
 
@@ -134,11 +158,13 @@
       <div class="footer__col">
         <h4 class="footer__title" data-i18n="footer.contactTitle">אנשי קשר להזמנת מקום</h4>
         <ul class="footer__list">
-          <li>
+          <li class="footer__contactItem">
+            <img class="icon icon--phone" src="images/icons/phone.svg" alt="" aria-hidden="true" />
             <a class="footer__link" href="tel:+972524738006">+972 52-473-8006</a>
             <span data-i18n="footer.contact.ariel">אריאל</span>
           </li>
-          <li>
+          <li class="footer__contactItem">
+            <img class="icon icon--phone" src="images/icons/phone.svg" alt="" aria-hidden="true" />
             <a class="footer__link" href="tel:+972527040088">+972 52-704-0088</a>
             <span data-i18n="footer.contact.itzik">איציק</span>
           </li>
