@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="page.title">תפריט מסעדה</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header (logo + languages ONLY) -->
+  <header id="stickyHeader" class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <img class="brand__logo" src="images/logo.png" alt="logo" />
+        <div class="brand__meta">
+          <h1 class="brand__title" data-i18n="page.heading">תפריט</h1>
+          <p class="brand__subtitle" data-i18n="page.subheading">בחרו קטגוריה והזמינו בקלות</p>
+        </div>
+      </div>
+
+      <div class="lang">
+        <button class="lang__btn" data-lang="he" aria-label="עברית">HE</button>
+        <button class="lang__btn" data-lang="ka" aria-label="Georgian">KA</button>
+        <button class="lang__btn" data-lang="en" aria-label="English">EN</button>
+        <button class="lang__btn" data-lang="ru" aria-label="Russian">RU</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Sticky Bar (categories + notices ONLY) -->
+  <div id="stickyBar">
+    <!-- Categories Nav (must be under logo, in exact order) -->
+    <nav class="categories">
+      <div class="container categories__inner" id="categoriesNav">
+        <!-- JS inject -->
+      </div>
+    </nav>
+
+    <!-- Notices (under categories nav) -->
+    <div class="notices">
+      <div class="container notices__inner">
+        <p class="notice" data-i18n="notice.service">
+          תשומת ליבכם: המחירים בתפריט אינם כוללים דמי שירות בשיעור של 10% אשר יתווספו לסכום הכולל של ההזמנה
+        </p>
+        <p class="notice" data-i18n="notice.pitaTime">
+          כל המנות בפיתה שלנו נמכרות עד השעה 20:00 או עד גמר המלאי
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="container main">
+    <div id="menuRoot">
+      <!-- JS inject categories + items -->
+    </div>
+
+    <!-- Reviews Slider (before footer) -->
+    <section class="reviews" aria-label="reviews">
+      <div class="section__head">
+        <h2 class="section__title" data-i18n="reviews.title">לקוחות ממליצים</h2>
+        <p class="section__subtitle" data-i18n="reviews.subtitle">10 המלצות שמתחלפות אוטומטית</p>
+      </div>
+
+      <div class="reviews__slider" id="reviewsSlider">
+        <button class="reviews__nav reviews__nav--prev" type="button" aria-label="prev">‹</button>
+
+        <div class="reviews__viewport">
+          <div class="reviews__track" id="reviewsTrack">
+            <!-- JS inject -->
+          </div>
+        </div>
+
+        <button class="reviews__nav reviews__nav--next" type="button" aria-label="next">›</button>
+      </div>
+
+      <div class="reviews__dots" id="reviewsDots" aria-label="dots">
+        <!-- JS inject -->
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp Floating -->
+  <a id="whatsAppBtn" class="whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="whatsapp__icon" aria-hidden="true">✆</span>
+    <span class="whatsapp__text" data-i18n="whatsapp.cta">הזמנת מקום</span>
+  </a>
+
+  <!-- Product Modal -->
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__card" role="document">
+      <button class="modal__close" id="modalCloseBtn" type="button" aria-label="close">×</button>
+
+      <div class="modal__content">
+        <img class="modal__image" id="modalImage" src="" alt="" />
+        <div class="modal__info">
+          <h3 class="modal__title" id="modalTitle"></h3>
+          <div class="modal__price" id="modalPrice"></div>
+          <p class="modal__desc" id="modalDesc" data-i18n="modal.descPlaceholder"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img class="footer__logo" src="images/logo.png" alt="logo" />
+        <p class="footer__tagline" data-i18n="footer.tagline">טעמים שמרגישים בבית</p>
+
+        <div class="footer__social">
+          <a class="social" href="#" target="_blank" rel="noopener" aria-label="Facebook">https://www.facebook.com/profile.php?id=100063354483400&mibextid=wwXIfr&rdid=tC9X3DIqIW0yjp5M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F185uzKSg3V%2F%3Fmibextid%3DwwXIfr#</a>
+          <a class="social" href="#" target="_blank" rel="noopener" aria-label="Instagram">https://www.instagram.com/jerusalem_house_plus/</a>
+          <a class="social" id="footerWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__title" data-i18n="footer.hoursTitle">שעות פעילות</h4>
+        <ul class="footer__list">
+          <li data-i18n="footer.hours.sun"></li>
+          <li data-i18n="footer.hours.mon"></li>
+          <li data-i18n="footer.hours.tue"></li>
+          <li data-i18n="footer.hours.wed"></li>
+          <li data-i18n="footer.hours.thu"></li>
+          <li data-i18n="footer.hours.fri"></li>
+          <li data-i18n="footer.hours.sat"></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__title" data-i18n="footer.contactTitle">אנשי קשר להזמנת מקום</h4>
+        <ul class="footer__list">
+          <li>
+            <a class="footer__link" href="tel:+972524738006">+972 52-473-8006</a>
+            <span data-i18n="footer.contact.ariel">אריאל</span>
+          </li>
+          <li>
+            <a class="footer__link" href="tel:+972527040088">+972 52-704-0088</a>
+            <span data-i18n="footer.contact.itzik">איציק</span>
+          </li>
+        </ul>
+
+        <h4 class="footer__title footer__title--mt" data-i18n="footer.addressTitle">כתובת</h4>
+        <p class="footer__address">Vaja Pshavela 8, Batumi</p>
+      </div>
+
+      <div class="footer__map">
+        <h4 class="footer__title" data-i18n="footer.mapTitle">מיקום במפה</h4>
+        <div class="map__wrap">
+          <iframe
+            title="map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Vaja%20Pshavela%208%2C%20Batumi&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottomInner">
+        <span>© <span id="year"></span> <span data-i18n="footer.rights">כל הזכויות שמורות</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
