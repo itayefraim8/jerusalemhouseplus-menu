@@ -857,3 +857,29 @@ img{max-width:100%;display:block}
     line-height:1.25 !important;
   }
 }
+/* ✅ FIX: Mobile grid shows ALL categories correctly */
+@media (max-width: 560px){
+
+  .categories__inner{
+    display:grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap:8px !important;
+  }
+
+  /* IMPORTANT: cancel full-width on mobile */
+  .catPill{
+    width:auto !important;      /* 🔴 זה העיקר */
+    height:34px !important;
+    padding:6px 6px !important;
+    font-size:11.5px !important;
+    line-height:1.1 !important;
+
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+}
