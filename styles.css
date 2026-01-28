@@ -928,3 +928,35 @@ img{max-width:100%;display:block}
     border-radius:10px !important;
   }
 }
+/* ✅ Mobile: make the sticky NAV shorter so it won't cut images */
+@media (max-width: 560px){
+
+  /* make the whole sticky bar tighter */
+  #stickyBar{
+    background: rgba(255,255,255,.96); /* יותר אטום כדי שלא "יחתוך" ויזואלית */
+    backdrop-filter: blur(10px);
+  }
+
+  .categories__inner{
+    grid-template-columns: repeat(3, 1fr) !important; /* כל הקטגוריות עדיין גלויות */
+    gap:6px !important;
+    padding:6px 0 8px !important;
+  }
+
+  .catPill{
+    height:30px !important;
+    padding:4px 6px !important;
+    font-size:11px !important;
+    border-radius:12px !important;
+    width:auto !important; /* קריטי שלא יפיל לעמודה אחת */
+    -webkit-line-clamp: 1 !important;
+  }
+
+  .notices{ padding:6px 0 8px !important; }
+  .notice{
+    font-size:11px !important;
+    padding:7px 8px !important;
+    border-radius:12px !important;
+    line-height:1.25 !important;
+  }
+}

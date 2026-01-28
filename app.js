@@ -1141,7 +1141,7 @@ function getReviews(lang){
   return base[lang] || base.he;
 }
 function getStickyBarHeight(){
-  const bar = document.querySelector(".stickyBar");
+  const bar = document.querySelector("#stickyBar");
   if (!bar) return 0;
   return Math.ceil(bar.getBoundingClientRect().height || 0);
 }
