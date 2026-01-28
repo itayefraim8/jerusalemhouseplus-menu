@@ -883,3 +883,48 @@ img{max-width:100%;display:block}
     text-overflow:ellipsis;
   }
 }
+/* =========================
+   MOBILE NAV COMPACT MODE
+   ========================= */
+@media (max-width: 560px){
+
+  /* NAV wrapper */
+  .categories{
+    padding: 6px 0 !important;
+  }
+
+  .categories__inner{
+    gap:6px !important;
+    padding: 6px 0 !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Category buttons */
+  .catPill{
+    height:32px !important;
+    padding:4px 6px !important;
+    font-size:11px !important;
+    line-height:1.1 !important;
+    font-weight:800 !important;
+
+    width:auto !important;        /* קריטי */
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* Notices – slimmer */
+  .notices{
+    padding:6px 0 !important;
+  }
+
+  .notice{
+    font-size:11.5px !important;
+    padding:7px 8px !important;
+    border-radius:10px !important;
+  }
+}
