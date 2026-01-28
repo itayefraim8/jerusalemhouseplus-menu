@@ -960,3 +960,68 @@ img{max-width:100%;display:block}
     line-height:1.25 !important;
   }
 }
+/* =====================================================
+   ✅ FINAL MOBILE PATCH (no deletions) — NAV smaller + no image cut
+   Put THIS at the very end of styles.css
+   ===================================================== */
+@media (max-width: 560px){
+
+  /* 1) Make sticky bar compact */
+  #stickyBar{
+    top: 0 !important;
+    background: rgba(255,255,255,.96) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 999 !important;
+  }
+
+  /* 2) Keep ALL categories visible (3 per row) but shorter */
+  #stickyBar .categories{
+    padding: 6px 0 !important;
+  }
+
+  #stickyBar .categories__inner{
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    padding: 6px 0 8px !important;
+  }
+
+  #stickyBar .catPill{
+    height: 30px !important;
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    border-radius: 12px !important;
+
+    /* force compact single-line pill */
+    width: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+    /* cancel multiline clamp that increases height */
+    -webkit-line-clamp: 1 !important;
+  }
+
+  /* 3) Notices slimmer so they don't eat the screen */
+  #stickyBar .notices{
+    padding: 6px 0 8px !important;
+  }
+
+  #stickyBar .notice{
+    font-size: 11px !important;
+    padding: 7px 8px !important;
+    border-radius: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 4) Prevent first card image from being hidden under sticky bar */
+  .main{
+    padding-top: calc(var(--stickyOffset) + 10px) !important;
+  }
+}
