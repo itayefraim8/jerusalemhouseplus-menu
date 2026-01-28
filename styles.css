@@ -825,3 +825,32 @@ img{max-width:100%;display:block}
   align-items:center;
   gap:10px;
 }
+/* ✅ Mobile: Categories become 1-row horizontal scroll (so it won't cover the screen) */
+@media (max-width: 560px){
+
+  /* replace grid with horizontal scroll row */
+  .categories__inner{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    gap:10px;
+    padding:10px 0 12px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* pills become compact and scroll-snap */
+  .catPill{
+    flex:0 0 auto;
+    min-width: 145px;      /* אפשר 130–170 לפי טעם */
+    height:40px;
+    font-size:12.5px;
+    -webkit-line-clamp: 1; /* שורה אחת במקום 2 */
+    scroll-snap-align: start;
+  }
+
+  /* nice: hide scrollbar (optional) */
+  .categories__inner::-webkit-scrollbar{ height:0; }
+  .categories__inner{ scrollbar-width:none; }
+}
