@@ -1025,3 +1025,24 @@ img{max-width:100%;display:block}
     padding-top: calc(var(--stickyOffset) + 10px) !important;
   }
 }
+/* =========================
+   ✅ MOBILE: show FULL dish image (no crop)
+   ========================= */
+@media (max-width: 560px){
+
+  /* Card images */
+  .card__img{
+    height: auto !important;
+    aspect-ratio: 16 / 10;   /* אפשר לשנות ל-4/3 אם תרצה */
+    object-fit: contain !important;
+    background: #fff;
+  }
+
+  /* Modal image too (if you open item) */
+  .modal__image{
+    height: auto !important;
+    aspect-ratio: 16 / 10;
+    object-fit: contain !important;
+    background: #fff;
+  }
+}
