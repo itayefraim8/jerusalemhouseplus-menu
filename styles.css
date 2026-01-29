@@ -1025,6 +1025,7 @@ img{max-width:100%;display:block}
     padding-top: calc(var(--stickyOffset) + 10px) !important;
   }
 }
+
 /* =========================
    ✅ MOBILE: show FULL dish image (no crop)
    ========================= */
@@ -1045,4 +1046,31 @@ img{max-width:100%;display:block}
     object-fit: contain !important;
     background: #fff;
   }
+}
+
+/* =====================================================
+   ✅ FINAL FIX: stop hover-zoom cropping on mobile/touch
+   (THIS is what was still cutting your images)
+   Put THIS at the very end (after everything)
+   ===================================================== */
+
+/* Touch devices: disable hover zoom so image won't be clipped */
+@media (hover: none), (pointer: coarse){
+  .card:hover .card__img,
+  .card:focus .card__img,
+  .card:focus-within .card__img{
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .card--soft:hover .card__img,
+  .card--alcohol:hover .card__img{
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Extra safety for small screens */
+@media (max-width: 560px){
+  .card__img{ transform: none !important; }
 }
