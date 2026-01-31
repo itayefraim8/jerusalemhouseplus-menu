@@ -1182,7 +1182,7 @@ function renderCategoriesNav(){
     const btn = document.createElement("button");
     btn.className = "catPill" + (idx === 0 ? " is-active" : "");
     btn.type = "button";
-    btn.dataset.target = c.id;
+    btn.dataset.target = c.id;S
 
     const txt = document.createElement("span");
     txt.className = "catPill__text";
