@@ -1074,3 +1074,57 @@ img{max-width:100%;display:block}
 @media (max-width: 560px){
   .card__img{ transform: none !important; }
 }
+/* ===== SUPER COMPACT MOBILE NAV ===== */
+@media (max-width: 560px){
+
+  /* הקטנת כל הבלוק הדביק */
+  #stickyBar{
+    background:#fff;
+  }
+
+  /* הופך את הקטגוריות לשורה אופקית נגללת */
+  #stickyBar .categories__inner{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    gap:6px !important;
+    padding:6px 4px !important;
+
+    /* גלילה חלקה ונעימה */
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* שלא יישברו לשורות */
+  #stickyBar .catPill{
+    flex:0 0 auto !important;
+    width:auto !important;
+    min-width:92px;          /* רוחב מינימלי לכפתור */
+    height:28px !important;  /* נמוך משמעותית */
+    padding:0 10px !important;
+
+    font-size:11px !important;
+    font-weight:800 !important;
+    border-radius:999px !important;
+
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+
+    white-space:nowrap;
+    line-height:1;
+  }
+
+  /* הודעות מתחת ל-NAV קטנות וצפופות */
+  #stickyBar .notices{
+    padding:4px 0 6px !important;
+  }
+
+  #stickyBar .notice{
+    font-size:10.5px !important;
+    padding:5px 6px !important;
+    line-height:1.2 !important;
+    border-radius:10px !important;
+  }
+}
