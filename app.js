@@ -1152,11 +1152,17 @@ function updateStickyOffsetVar(){
   return h;
 }
 
-function scrollToSectionWithStickyOffset(el){
-  if (!el) return;
+// ✅ Scroll to the category TITLE (section head/title) instead of the section container
+function scrollToSectionWithStickyOffset(sectionEl){
+  if (!sectionEl) return;
+
+  const target =
+    sectionEl.querySelector(".section__head") ||
+    sectionEl.querySelector(".section__title") ||
+    sectionEl;
 
   const offset = updateStickyOffsetVar();
-  const y = el.getBoundingClientRect().top + window.pageYOffset - offset - 8; // 8px breathing room
+  const y = target.getBoundingClientRect().top + window.pageYOffset - offset - 6;
 
   window.scrollTo({
     top: Math.max(0, y),
@@ -1183,13 +1189,13 @@ function renderCategoriesNav(){
     txt.textContent = t(c.titleKey);
     btn.appendChild(txt);
 
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".catPill").forEach(x => x.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      const el = document.getElementById(`sec-${c.id}`);
-      if (el) scrollToSectionWithStickyOffset(el);
+btn.addEventListener("click", () => {
+  document.querySelectorAll(".catPill").forEach(x => x.classList.remove("is-active"));
+  btn.classList.add("is-active");
 
-    });
+  const sec = document.getElementById(`sec-${c.id}`);
+  if (sec) scrollToSectionWithStickyOffset(sec);
+});
 
     nav.appendChild(btn);
   });
