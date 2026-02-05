@@ -774,3 +774,11 @@ img{max-width:100%;display:block}
 @media (max-width:560px){
   .card__gluten{ font-size:11px; }
 }
+/* Background for home page */
+body{
+  background: 
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+    url("images/bg-home.jpg") no-repeat center center fixed;
+
+  background-size: cover;
+}
