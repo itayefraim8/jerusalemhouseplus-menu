@@ -1,5 +1,5 @@
 /* =========
-   MENU DATA (1..70 images + localized names)
+   MENU DATA (1..72 images + localized names)
    ========= */
 
 const PHONE_WA = "972524738006"; // WhatsApp target (without +)
@@ -36,7 +36,7 @@ const categories = [
   { id: "desserts", titleKey: "cat.desserts" },
 ];
 
-// Prices (70)
+// Prices (1..72)
 const prices = [
   25,25,25,35,              // 1-4 Pita
   50,50,50,50,50,50,50,     // 5-11 Khachapuri
@@ -46,10 +46,17 @@ const prices = [
   15,25,35,25,35,25,        // 37-42
   2,2,2,2,5,7,7,7,6,7,7,7,10,10,10,8,8,25,9,9,6, // 43-63
   15,                       // 64
-  80,45,20,25,25,45,45      // 65-70
-].slice(0, 70);
+  80,45,20,25,25,45,45,     // 65-71 (original 65-70 + one extra)
+  6                          // 72 Black Coffee
+].slice(0, 72);
 
-// Build items list (70)
+// ✅ Fix specific new items prices (ensure correct):
+// 71 Fruit Mix Juice = 8
+prices[70] = 8;
+// 72 Black Coffee = 6
+prices[71] = 6;
+
+// Build items list
 const items = [
   // Pita (1-4)
   mkItem(1, "pita", "item.1"),
@@ -77,7 +84,7 @@ const items = [
   mkItem(17, "mains", "item.17"),
   mkItem(18, "mains", "item.18"),
   mkItem(19, "mains", "item.19"),
-  mkItem(20, "mains", "item.20"),
+  // ✅ Removed: item 20 (Beet Hummus) per request
   mkItem(21, "mains", "item.21"),
   mkItem(22, "mains", "item.22"),
   mkItem(23, "mains", "item.23"),
@@ -109,7 +116,7 @@ const items = [
   mkItem(45, "sides", "item.45"),
   mkItem(46, "sides", "item.46"),
 
-  // Soft drinks (47-61)
+  // Soft drinks (47-61) + ✅ new 71
   mkItem(47, "soft", "item.47"),
   mkItem(48, "soft", "item.48"),
   mkItem(49, "soft", "item.49"),
@@ -125,9 +132,11 @@ const items = [
   mkItem(59, "soft", "item.59"),
   mkItem(60, "soft", "item.60"),
   mkItem(61, "soft", "item.61"),
+  mkItem(71, "soft", "item.71"), // ✅ Fruit Mix Juice
 
-  // Hot drinks (62)
+  // Hot drinks (62) + ✅ new 72
   mkItem(62, "hot", "item.62"),
+  mkItem(72, "hot", "item.72"), // ✅ Black Coffee
 
   // Alcohol (63-68)
   mkItem(63, "alcohol", "item.63"),
@@ -180,8 +189,8 @@ const i18n = {
     "reviews.subtitle":"10 המלצות שמתחלפות אוטומטית",
 
     "whatsapp.cta":"הזמנת מקום",
-    "whatsapp.message":"שלום, אשמח להזמין מקום במסעדה. אפשר בבקשה לעזור לי עם הזמנה?",
-  
+    // ✅ Updated WhatsApp auto message
+    "whatsapp.message":"שלום😊 הגעתם למסעדת \"הבית הירושלמי\" במה נוכל לסייע\nלהזמנת שולחן, אנא ציינו תאריך הגעה, שעת הגעה, ומספר סועדים\n\n🙏תודה",
 
     "notice.service":"תשומת ליבכם: המחירים בתפריט אינם כוללים דמי שירות בשיעור של 10% אשר יתווספו לסכום הכולל של ההזמנה",
     "notice.pitaTime":"כל המנות בפיתה שלנו נמכרות עד השעה 20:00 או עד גמר המלאי",
@@ -204,7 +213,7 @@ const i18n = {
     "footer.mapTitle":"מיקום במפה",
     "footer.rights":"כל הזכויות שמורות",
 
-    // Names 1..70
+    // Names 1..72
     "item.1":"פיתה סביח",
     "item.2":"פיתה חביתה",
     "item.3":"פיתה פלאפל",
@@ -227,7 +236,7 @@ const i18n = {
     "item.17":"שקשוקה במחבת",
     "item.18":"חומוס מסבחה",
     "item.19":"חומוס פטריות",
-    "item.20":"חומוס סלק",
+    // 20 removed
     "item.21":"פיצה מרגריטה",
     "item.22":"פסטה עגבניות",
     "item.23":"פסטה רוזה",
@@ -272,8 +281,10 @@ const i18n = {
     "item.59":"לימונענע גרוס",
     "item.60":"סודה מוגזת בטעם מנדרינה",
     "item.61":"סודה מוגזת בטעם אגס",
+    "item.71":"מיץ מיקס פירות",
 
     "item.62":"תה",
+    "item.72":"קפה שחור",
 
     "item.63":"בירה",
     "item.64":"בקבוק יין כשר",
@@ -285,7 +296,7 @@ const i18n = {
     "item.69":"רוזלך",
     "item.70":"סינבונים",
 
-    // Descriptions (HE) - only what you provided; others empty
+    // Descriptions (HE)
     "desc.1":"פיתה עם ביצה קשה, חציל מטוגן, תפו\"א וטחינה ביחד עם ירקות טריים: מלפפון, עגבניה וכרוב לבן. המנה נמכרת עד השעה 20:00 בערב/גמר המלאי.",
     "desc.2":"חביתה עם סלט ירקות: מלפפון, עגבניה וכרוב לבן (ניתן להוסיף טחינה/גבינה/רוטב הבית). המנה נמכרת עד השעה 20:00 בערב/גמר המלאי.",
     "desc.3":"פיתה עם כדורי פלאפל שמטוגנים במקום עם טחינה וירקות טריים: מלפפון, עגבניה וכרוב לבן. המנה נמכרת עד השעה 20:00 בערב/גמר המלאי.",
@@ -297,7 +308,8 @@ const i18n = {
     "desc.8":"המאפה הגאורגי המסורתי עם מילוי גבינה בקצוות ומילוי פיצה בפנים.",
     "desc.9":"המאפה הגאורגי המסורתי בשילוב עם סביח!! מכיל ביצה קשה, חציל מטוגן, תפו\"א וטחינה.",
     "desc.10":"המאפה הגאורגי המסורתי על מצע של טחינה וירקות טריים וכדורי פלאפל שמטוגנים במקום.",
-    "desc.11":"",
+    // ✅ 1) New Imeruli description
+    "desc.11":"חצ'פורי אימרולי – מאפה גאורגי מסורתי במילוי גבינות משובחות, נאפה טרי עד הזהבה מושלמת.",
 
     "desc.12":"סלט עם ירקות טריים: מלפפון, עגבניה וכרוב חתוכים דק.",
     "desc.13":"סלט עם ירקות טריים חתוכים גס: מלפפון, עגבניה ובצל.",
@@ -305,10 +317,13 @@ const i18n = {
     "desc.15":"סלט עם ירקות טריים: מלפפון, עגבניה וכרוב חתוכים דק בתוספת גבינה בולגרית.",
     "desc.16":"סלט עם ירקות טריים: מלפפון, עגבניה וכרוב חתוכים דק לצד טוסט מפנק (ניתן תוספת אחת ללא תשלום). טוסט הבית הירושלמי מגיע עם גבינה צהובה, רוטב פיצה, ביצה ותוספות לבחירה.",
 
-    "desc.17":"שקשוקת הבית שעשויה מעגבניות וביצים טריות לצד לחם בית טרי. פיתות בתוספת תשלום.",
-    "desc.18":"חומוס שנטחן ונעשה במקום בתוספת של גרגירי חומוס, מגיע עם 2 פיתות. כל פיתה נוספת בתוספת תשלום.",
-    "desc.19":"חומוס שנטחן ונעשה במקום בתוספת של פטריות לצד פיתות הבית.",
-    "desc.20":"טוויסט צבעוני וטעים על הקלסיקה הישראלית בתוספת פיתות הבית.",
+    // ✅ 2) Shakshuka skillet bread extra price (5 GEL)
+    "desc.17":"שקשוקת הבית שעשויה מעגבניות וביצים טריות לצד לחם בית טרי. לחם נוסף בתוספת תשלום - 5 לארי",
+    // ✅ 4) Masabacha add pita extra 5
+    "desc.18":"חומוס שנטחן ונעשה במקום בתוספת של גרגירי חומוס, מגיע עם 2 פיתות. כל פיתה נוספת בתוספת תשלום - 5 לארי",
+    // ✅ 5) Mushroom hummus add pita extra 5
+    "desc.19":"חומוס שנטחן ונעשה במקום בתוספת של פטריות לצד פיתות הבית. כל פיתה נוספת בתוספת תשלום - 5 לארי",
+    // desc.20 removed (item removed)
     "desc.21":"פיצה עם תוספות לבחירה: זיתים ירוקים/שחורים, פטריות, בצל, תירס, גמבה, פלפל חריף.",
     "desc.22":"פסטת הבית עם רוטב מעגבניות טריות.",
     "desc.23":"פסטת הבית עם רוטב מעגבניות טריות ושמנת.",
@@ -319,19 +334,31 @@ const i18n = {
     "desc.27":"4 בורקסים בינוניים במילוי תפוח אדמה לצד סלט ישראלי קטן.",
     "desc.28":"4 בורקסים בינוניים במילוי תפוח אדמה ופטריות לצד סלט ישראלי קטן.",
     "desc.29":"4 בורקסים בינוניים במילוי פיצה לצד סלט ישראלי קטן.",
-    "desc.30":"טוסט הבית הירושלמי עם גבינה צהובה, רוטב פיצה, ביצה ותוספות לבחירה.",
 
-    "desc.31":"",
-    "desc.32":"",
+    // ✅ 6) New Toast description
+    "desc.30":"טוסט הבית הירושלמי עם גבינה צהובה, רוטב פיצה, ביצה (ניתן תוספת אחת ללא תשלום)",
 
+    // ✅ 7) Malawach new description
+    "desc.31":"בצק עלים תימני מטוגן בעבודת יד, פריך מבחוץ ורך מבפנים. מוגש חם ומפנק, עם ביצה ורסק בדיוק כמו בבית.",
+    // ✅ 8) Ziva new description
+    "desc.32":"מאפה חמים מבצק עלים דק במילוי גבינות עשירות, נאפה עד הזהבה מושלמת. שילוב מנצח של פריכות ונימוחות בכל ביס. מוגש עם עם ביצה ורסק.",
+
+    // 9) Fish & Chips already correct
     "desc.33":"נתחי דג סלמון מצופים בטמפורה בתוספת צ׳יפס.",
     "desc.34":"שווארמה של דג פורל בתוספת של צ'יפס/ סלט ירקות. ניתן להוסיף פיתה בתוספת 5 לארי.",
     "desc.35":"דג סיבס (לברק) שלם בתנור בתוספת של צ'יפס/סלט.",
 
     "desc.36":"צלחת עם 5 כדורי פלאפל. לא מותאם לצליאק, מנה טבעונית.",
-    "desc.37":"נא ליידע בעת ההזמנה אם ברצונכם צ'יפס ללא תיבול. מגיע עם צלוחית קטשופ, כל צלוחית נוספת בתוספת תשלום.",
-    "desc.38":"קציצות העשויות מירקות מגורדים טריים (גזר, קישוא ופטרוזיליה).",
-    "desc.39":"",
+
+    // ✅ 10) Fries new description
+    "desc.37":"צ׳יפס זהוב ופריך בתיבול מדויק של פפריקה ומלח, מוגש חם עם צלוחית קטשופ בצד. ניתן לבקש ללא תיבול בעת ההזמנה. צלוחית קטשופ נוספת בתוספת תשלום.",
+
+    // ✅ 11) Veggie patties (sides) = 5 patties
+    "desc.38":"5 קציצות העשויות מירקות מגורדים טריים (גזר, קישוא) ופטרוזיליה).",
+
+    // ✅ 12) White rice description
+    "desc.39":"אורז אוורירי ורך, מבושל בדיוק במידה ומוגש חם. תוספת קלאסית שמתאימה לכל מנה.",
+
     "desc.40":"אורז מוקפץ עם מגוון ירקות העונה: גזר, בצל, כרוב לבן, פטריות. המנה מגיעה עם ביצה מטוגנת / ניתן ללא ביצה.",
     "desc.41":"מרק הבית מידי יום בהשראת חומרי הגלם הטריים והעונתיים ביותר. שאלו את המלצר על מרק היום!",
 
@@ -362,30 +389,42 @@ const i18n = {
     "desc.66":"",
     "desc.67":"",
     "desc.68":"",
-    "desc.69":"",
-    "desc.70":"",
+
+    // ✅ 15) Rugelach description
+    "desc.69":"מאפי בצק רך מגולגלים במילוי שוקולד עשיר שנעשה במקום, אפוי עד רכות מושלמת. ביס נוסטלגי ומתוק שקשה לעצור.",
+    // ✅ 16) Cinnabons description
+    "desc.70":"שבלולי בצק רכים ואווריריים במילוי קינמון וסוכר חום, נאפים טריים ומצופים בסוכר/זיגוג מתוק ומלטף. קינוח ממכר במיוחד!",
+
+    // New drinks
+    "desc.71":"",
+    "desc.72":"",
+
     // Khachapuri GF
-"opt.5.gf":"חצ'פורי שקשוקה ללא גלוטן",
-"opt.6.gf":"חצ'פורי חומוס מסבחה ללא גלוטן",
-"opt.7.gf":"חצ'פורי אצ'רולי ללא גלוטן",
-"opt.8.gf":"חצ'פורי פיצה ללא גלוטן",
-"opt.9.gf":"חצ'פורי סביח ללא גלוטן",
-"opt.10.gf":"חצ'פורי פלאפל ללא גלוטן",
-"opt.11.gf":"חצ'פורי אימרולי ללא גלוטן",
+    "opt.5.gf":"חצ'פורי שקשוקה ללא גלוטן",
+    "opt.6.gf":"חצ'פורי חומוס מסבחה ללא גלוטן",
+    "opt.7.gf":"חצ'פורי אצ'רולי ללא גלוטן",
+    "opt.8.gf":"חצ'פורי פיצה ללא גלוטן",
+    "opt.9.gf":"חצ'פורי סביח ללא גלוטן",
+    "opt.10.gf":"חצ'פורי פלאפל ללא גלוטן",
+    "opt.11.gf":"חצ'פורי אימרולי ללא גלוטן",
 
-// Pizza (21)
-"opt.21.half":"פיצה עם תוספת חצי מגש",
-"opt.21.one":"פיצה עם תוספת",
-"opt.21.two":"פיצה עם 2 תוספות",
-"opt.21.gf":"פיצה מרגריטה ללא גלוטן",
+    // Pizza (21)
+    "opt.21.half":"פיצה עם תוספת חצי מגש",
+    "opt.21.one":"פיצה עם תוספת",
+    "opt.21.two":"פיצה עם 2 תוספות",
+    "opt.21.gf":"פיצה מרגריטה ללא גלוטן",
 
-// Pastas GF
-"opt.22.gf":"פסטה עגבניות ללא גלוטן",
-"opt.23.gf":"פסטה רוזה ללא גלוטן",
-"opt.24.gf":"פסטה שמנת פטריות ללא גלוטן",
-"opt.25.gf":"פסטה אג'יו אוליו ללא גלוטן",
-"opt.base":"רגיל",
+    // Pastas GF
+    "opt.22.gf":"פסטה עגבניות ללא גלוטן",
+    "opt.23.gf":"פסטה רוזה ללא גלוטן",
+    "opt.24.gf":"פסטה שמנת פטריות ללא גלוטן",
+    "opt.25.gf":"פסטה אג'יו אוליו ללא גלוטן",
 
+    // ✅ Malawach + Ziva GF (+5)
+    "opt.31.gf":"מלאווח ללא גלוטן (+5)",
+    "opt.32.gf":"זיווה ללא גלוטן (+5)",
+
+    "opt.base":"רגיל",
   },
 
   en: {
@@ -409,7 +448,8 @@ const i18n = {
     "reviews.subtitle":"10 reviews rotating automatically",
 
     "whatsapp.cta":"Reserve a Table",
-    "whatsapp.message":"Hi, I’d like to reserve a table at your restaurant. Can you help me with a booking?",
+    // ✅ Updated WhatsApp auto message (EN)
+    "whatsapp.message":"Hello 😊 You’ve reached “Jerusalem House”. How can we help?\nTo reserve a table, please write your arrival date, arrival time, and number of guests.\n\n🙏 Thank you",
     "modal.descPlaceholder":"Dish description will be added later.",
 
     "notice.service":"Please note: menu prices do not include a 10% service charge, which will be added to the final bill.",
@@ -455,7 +495,6 @@ const i18n = {
     "item.17":"Skillet Shakshuka",
     "item.18":"Hummus Masabacha",
     "item.19":"Mushroom Hummus",
-    "item.20":"Beet Hummus",
     "item.21":"Margherita Pizza",
     "item.22":"Tomato Pasta",
     "item.23":"Rose Pasta",
@@ -500,8 +539,10 @@ const i18n = {
     "item.59":"Frozen Lemon-Mint",
     "item.60":"Sparkling Soda (Mandarin)",
     "item.61":"Sparkling Soda (Pear)",
+    "item.71":"Fruit Mix Juice",
 
     "item.62":"Tea",
+    "item.72":"Black Coffee",
 
     "item.63":"Beer",
     "item.64":"Kosher Wine Bottle",
@@ -520,12 +561,12 @@ const i18n = {
     "desc.4":"Pita with patties made from freshly grated vegetables (carrot, zucchini, parsley). Sold until 20:00 or while stock lasts.",
 
     "desc.5":"Traditional Georgian pastry filled with our house shakshuka made from tomatoes and fresh eggs.",
-    "desc.6":"Traditional Georgian pastry filled with hummus made fresh on-site, topped with chickpeas.",
+    "desc.6":"Traditional Georgian pastry filled with freshly made hummus, topped with chickpeas.",
     "desc.7":"Georgia’s signature pastry filled with cheeses, topped with a sunny-side-up egg and butter.",
     "desc.8":"Traditional Georgian pastry with cheese on the edges and pizza filling inside.",
     "desc.9":"Traditional Georgian pastry with Sabich: hard-boiled egg, fried eggplant, potato, and tahini.",
     "desc.10":"Traditional Georgian pastry on a bed of tahini and fresh vegetables, with freshly fried falafel balls.",
-    "desc.11":"",
+    "desc.11":"Imeruli Khachapuri — a traditional Georgian pastry filled with premium cheeses, baked fresh to a perfect golden finish.",
 
     "desc.12":"Fresh salad with finely chopped cucumber, tomato, and cabbage.",
     "desc.13":"Fresh salad with roughly chopped cucumber, tomato, and onion.",
@@ -533,10 +574,10 @@ const i18n = {
     "desc.15":"Fresh salad with finely chopped cucumber, tomato, and cabbage, with Bulgarian cheese.",
     "desc.16":"Fresh salad with finely chopped cucumber, tomato, and cabbage, served with a hearty toast (one topping included free). Jerusalem house toast includes yellow cheese, pizza sauce, egg, and toppings of your choice.",
 
-    "desc.17":"Our house shakshuka (tomatoes and fresh eggs) served with fresh house bread. Pitas are available for an extra charge.",
-    "desc.18":"Freshly made hummus topped with chickpeas, served with 2 pitas. Each additional pita is extra.",
-    "desc.19":"Freshly made hummus with mushrooms, served with our house pitas.",
-    "desc.20":"A colorful, tasty twist on the Israeli classic, served with our house pitas.",
+    "desc.17":"Our house shakshuka (tomatoes and fresh eggs) served with fresh house bread. Extra bread: +5 GEL.",
+    "desc.18":"Freshly made hummus topped with chickpeas, served with 2 pitas. Each additional pita: +5 GEL.",
+    "desc.19":"Freshly made hummus with mushrooms, served with our house pitas. Each additional pita: +5 GEL.",
+
     "desc.21":"Pizza with toppings of your choice: green/black olives, mushrooms, onion, corn, bell pepper, hot pepper.",
     "desc.22":"House pasta with fresh tomato sauce.",
     "desc.23":"House pasta with fresh tomato sauce and cream.",
@@ -547,19 +588,21 @@ const i18n = {
     "desc.27":"4 medium potato bourekas served with a small Israeli salad.",
     "desc.28":"4 medium potato & mushroom bourekas served with a small Israeli salad.",
     "desc.29":"4 medium pizza bourekas served with a small Israeli salad.",
-    "desc.30":"Jerusalem house toast with yellow cheese, pizza sauce, egg, and toppings of your choice.",
+    "desc.30":"Jerusalem House toast with yellow cheese, pizza sauce, and egg (one topping can be added for free).",
 
-    "desc.31":"",
-    "desc.32":"",
+    "desc.31":"Handmade Yemeni-style fried puff pastry — crispy outside and soft inside. Served hot and comforting, with egg and tomato spread, just like home.",
+    "desc.32":"Warm flaky pastry made from thin puff layers, filled with rich cheeses and baked to a perfect golden finish. A winning mix of crispness and softness in every bite. Served with egg and tomato spread.",
+
     "desc.33":"Tempura-coated salmon pieces served with fries.",
     "desc.34":"Trout fish shawarma served with fries / vegetable salad. You can add pita for an extra 5 GEL.",
     "desc.35":"Whole sea bass (oven-baked) served with fries / salad.",
     "desc.36":"Plate with 5 falafel balls. Not suitable for celiac. Vegan dish.",
-    "desc.37":"Please let us know when ordering if you want fries without seasoning. Served with a ketchup dish; each extra dish is additional.",
-    "desc.38":"Patties made from freshly grated vegetables (carrot, zucchini, parsley).",
-    "desc.39":"",
+    "desc.37":"Golden, crispy fries seasoned perfectly with paprika and salt, served hot with a ketchup dish on the side. You can request no seasoning when ordering. Extra ketchup dish costs extra.",
+    "desc.38":"5 patties made from freshly grated vegetables (carrot, zucchini) and parsley).",
+    "desc.39":"Fluffy, tender white rice, cooked just right and served hot. A classic side that pairs well with any dish.",
     "desc.40":"Stir-fried rice with seasonal vegetables: carrot, onion, white cabbage, mushrooms. Served with a fried egg / can be without egg.",
     "desc.41":"House soup inspired daily by the freshest seasonal ingredients. Ask your waiter about today’s soup!",
+
     "desc.42":"",
     "desc.43":"",
     "desc.44":"",
@@ -587,26 +630,33 @@ const i18n = {
     "desc.66":"",
     "desc.67":"",
     "desc.68":"",
-    "desc.69":"",
-    "desc.70":"",
+    "desc.69":"Soft, rolled pastries filled with rich house-made chocolate, baked until perfectly tender. A nostalgic sweet bite that’s hard to stop.",
+    "desc.70":"Soft, airy cinnamon rolls filled with cinnamon and brown sugar, baked fresh and topped with a sweet glaze. Seriously addictive!",
+    "desc.71":"",
+    "desc.72":"",
+
     "opt.5.gf":"Shakshuka Khachapuri (Gluten-Free)",
-"opt.6.gf":"Hummus Masabacha Khachapuri (Gluten-Free)",
-"opt.7.gf":"Adjaruli Khachapuri (Gluten-Free)",
-"opt.8.gf":"Pizza Khachapuri (Gluten-Free)",
-"opt.9.gf":"Sabich Khachapuri (Gluten-Free)",
-"opt.10.gf":"Falafel Khachapuri (Gluten-Free)",
-"opt.11.gf":"Imeruli Khachapuri (Gluten-Free)",
+    "opt.6.gf":"Hummus Masabacha Khachapuri (Gluten-Free)",
+    "opt.7.gf":"Adjaruli Khachapuri (Gluten-Free)",
+    "opt.8.gf":"Pizza Khachapuri (Gluten-Free)",
+    "opt.9.gf":"Sabich Khachapuri (Gluten-Free)",
+    "opt.10.gf":"Falafel Khachapuri (Gluten-Free)",
+    "opt.11.gf":"Imeruli Khachapuri (Gluten-Free)",
 
-"opt.21.half":"Pizza + Half Toppings",
-"opt.21.one":"Pizza + 1 Topping",
-"opt.21.two":"Pizza + 2 Toppings",
-"opt.21.gf":"Margherita Pizza (Gluten-Free)",
+    "opt.21.half":"Pizza + Half Toppings",
+    "opt.21.one":"Pizza + 1 Topping",
+    "opt.21.two":"Pizza + 2 Toppings",
+    "opt.21.gf":"Margherita Pizza (Gluten-Free)",
 
-"opt.22.gf":"Tomato Pasta (Gluten-Free)",
-"opt.23.gf":"Rose Pasta (Gluten-Free)",
-"opt.24.gf":"Creamy Mushroom Pasta (Gluten-Free)",
-"opt.25.gf":"Aglio e Olio Pasta (Gluten-Free)",
-"opt.base":"Regular",
+    "opt.22.gf":"Tomato Pasta (Gluten-Free)",
+    "opt.23.gf":"Rose Pasta (Gluten-Free)",
+    "opt.24.gf":"Creamy Mushroom Pasta (Gluten-Free)",
+    "opt.25.gf":"Aglio e Olio Pasta (Gluten-Free)",
+
+    "opt.31.gf":"Malawach (Gluten-Free) (+5)",
+    "opt.32.gf":"Ziva (Gluten-Free) (+5)",
+
+    "opt.base":"Regular",
   },
 
   ru: {
@@ -630,7 +680,8 @@ const i18n = {
     "reviews.subtitle":"10 отзывов автоматически",
 
     "whatsapp.cta":"Забронировать стол",
-    "whatsapp.message":"Здравствуйте, я хочу забронировать стол в вашем ресторане. Поможете оформить бронь?",
+    // ✅ Updated WhatsApp auto message (RU)
+    "whatsapp.message":"Здравствуйте 😊 Вы обратились в ресторан «Jerusalem House». Чем можем помочь?\nДля бронирования столика укажите дату прибытия, время прибытия и количество гостей.\n\n🙏 Спасибо",
     "modal.descPlaceholder":"Описание блюда будет добавлено позже.",
 
     "notice.service":"Обратите внимание: цены в меню не включают сервисный сбор 10%, который будет добавлен к итоговой сумме заказа.",
@@ -654,7 +705,6 @@ const i18n = {
     "footer.mapTitle":"Мы на карте",
     "footer.rights":"Все права защищены",
 
-    // Names
     "item.1":"Пита сабих",
     "item.2":"Пита с омлетом",
     "item.3":"Пита фалафель",
@@ -674,7 +724,6 @@ const i18n = {
     "item.17":"Шакшука на сковороде",
     "item.18":"Хумус масабаха",
     "item.19":"Хумус с грибами",
-    "item.20":"Хумус со свёклой",
     "item.21":"Пицца Маргарита",
     "item.22":"Паста томатная",
     "item.23":"Паста розе",
@@ -716,7 +765,11 @@ const i18n = {
     "item.59":"Замороженный лимон-мята",
     "item.60":"Газировка (мандарин)",
     "item.61":"Газировка (груша)",
+    "item.71":"Фруктовый микс (сок)",
+
     "item.62":"Чай",
+    "item.72":"Чёрный кофе",
+
     "item.63":"Пиво",
     "item.64":"Кошерное вино (бутылка)",
     "item.65":"Мохито (стакан)",
@@ -726,7 +779,6 @@ const i18n = {
     "item.69":"Ругелах",
     "item.70":"Синнабоны",
 
-    // Descriptions (RU)
     "desc.1":"Пита с яйцом вкрутую, жареным баклажаном, картофелем и тахини, с свежими овощами: огурец, помидор и белая капуста. Продаётся до 20:00 или пока есть в наличии.",
     "desc.2":"Омлет с овощным салатом: огурец, помидор и белая капуста (можно добавить тахини / сыр / фирменный соус). Продаётся до 20:00 или пока есть в наличии.",
     "desc.3":"Пита со свежими фалафельными шариками, тахини и свежими овощами: огурец, помидор и белая капуста. Продаётся до 20:00 или пока есть в наличии.",
@@ -737,7 +789,7 @@ const i18n = {
     "desc.8":"Традиционная грузинская выпечка: сыр по краям и начинка «пицца» внутри.",
     "desc.9":"Традиционная грузинская выпечка в стиле сабих: яйцо вкрутую, жареный баклажан, картофель и тахини.",
     "desc.10":"Традиционная грузинская выпечка на тахини и свежих овощах, со свежими фалафельными шариками.",
-    "desc.11":"",
+    "desc.11":"Хачапури имерули — традиционная грузинская выпечка с отборными сырами, выпекается свежей до идеальной золотистой корочки.",
 
     "desc.12":"Свежий салат: мелко нарезанные огурец, помидор и капуста.",
     "desc.13":"Свежий салат: крупно нарезанные огурец, помидор и лук.",
@@ -745,10 +797,10 @@ const i18n = {
     "desc.15":"Свежий салат: мелко нарезанные огурец, помидор и капуста, с болгарским сыром.",
     "desc.16":"Свежий салат: мелко нарезанные огурец, помидор и капуста, с сытным тостом (одна добавка бесплатно). Домашний тост: жёлтый сыр, соус для пиццы, яйцо и добавки на выбор.",
 
-    "desc.17":"Домашняя шакшука (томаты и свежие яйца) с свежим хлебом. Пита за доплату.",
-    "desc.18":"Хумус, приготовленный на месте, с нутом, подаётся с 2 питами. Каждая дополнительная пита — за доплату.",
-    "desc.19":"Домашний хумус с грибами, с питой.",
-    "desc.20":"Яркий вкусный твист на израильской классике, с питой.",
+    "desc.17":"Домашняя шакшука (томаты и свежие яйца) с свежим хлебом. Дополнительный хлеб: +5 GEL.",
+    "desc.18":"Хумус, приготовленный на месте, с нутом, подаётся с 2 питами. Каждая дополнительная пита: +5 GEL.",
+    "desc.19":"Домашний хумус с грибами, с питой. Каждая дополнительная пита: +5 GEL.",
+
     "desc.21":"Пицца с добавками на выбор: зелёные/чёрные оливки, грибы, лук, кукуруза, болгарский перец, острый перец.",
     "desc.22":"Домашняя паста с соусом из свежих томатов.",
     "desc.23":"Домашняя паста с соусом из свежих томатов и сливками.",
@@ -759,19 +811,21 @@ const i18n = {
     "desc.27":"4 средних бурекаса с картофелем + маленький израильский салат.",
     "desc.28":"4 средних бурекаса с картофелем и грибами + маленький израильский салат.",
     "desc.29":"4 средних бурекаса «пицца» + маленький израильский салат.",
-    "desc.30":"Домашний тост: жёлтый сыр, соус для пиццы, яйцо и добавки на выбор.",
+    "desc.30":"Домашний тост Jerusalem House: жёлтый сыр, соус для пиццы и яйцо (одна добавка бесплатно).",
 
-    "desc.31":"",
-    "desc.32":"",
+    "desc.31":"Домашний малауах (йеменское слоёное тесто), жареный вручную — хрустящий снаружи и мягкий внутри. Подаётся горячим, с яйцом и томатной пастой, как дома.",
+    "desc.32":"Тёплая выпечка из тонкого слоёного теста с богатой сырной начинкой, запечённая до золотистой корочки. Идеальное сочетание хруста и нежности в каждом кусочке. Подаётся с яйцом и томатной пастой.",
+
     "desc.33":"Кусочки лосося в темпуре с картофелем фри.",
     "desc.34":"Рыбная шаурма из форели с картофелем фри / овощным салатом. Можно добавить питу за 5 GEL.",
     "desc.35":"Сибас целиком в духовке с картофелем фри / салатом.",
     "desc.36":"Тарелка с 5 фалафельными шариками. Не подходит при целиакии. Веганское блюдо.",
-    "desc.37":"Сообщите при заказе, если хотите фри без приправ. Подаётся с кетчупом; каждая дополнительная порция — за доплату.",
-    "desc.38":"Котлеты из свеженатёртых овощей (морковь, кабачок, петрушка).",
-    "desc.39":"",
+    "desc.37":"Золотистая хрустящая картошка фри, приправленная паприкой и солью, подаётся горячей с кетчупом. Можно попросить без приправ. Дополнительный кетчуп — за доплату.",
+    "desc.38":"5 котлет из свеженатёртых овощей (морковь, кабачок) и петрушки).",
+    "desc.39":"Воздушный мягкий белый рис, приготовленный идеально и подаётся горячим. Классический гарнир к любому блюду.",
     "desc.40":"Жареный рис с сезонными овощами: морковь, лук, белая капуста, грибы. С жареным яйцом / можно без яйца.",
     "desc.41":"Домашний суп каждый день из самых свежих сезонных ингредиентов. Спросите официанта о супе дня!",
+
     "desc.42":"",
     "desc.43":"",
     "desc.44":"",
@@ -799,26 +853,33 @@ const i18n = {
     "desc.66":"",
     "desc.67":"",
     "desc.68":"",
-    "desc.69":"",
-    "desc.70":"",
+    "desc.69":"Нежные рулетики из мягкого теста с богатой шоколадной начинкой, приготовленной на месте, запечённые до идеальной мягкости. Ностальгический сладкий кусочек, от которого трудно остановиться.",
+    "desc.70":"Мягкие воздушные синнабоны с корицей и коричневым сахаром, выпекаются свежими и покрываются сладкой глазурью. Очень addictive!",
+    "desc.71":"",
+    "desc.72":"",
+
     "opt.5.gf":"Хачапури шакшука (без глютена)",
-"opt.6.gf":"Хачапури хумус масабаха (без глютена)",
-"opt.7.gf":"Хачапури аджарули (без глютена)",
-"opt.8.gf":"Хачапури пицца (без глютена)",
-"opt.9.gf":"Хачапури сабих (без глютена)",
-"opt.10.gf":"Хачапури фалафель (без глютена)",
-"opt.11.gf":"Хачапури имерули (без глютена)",
+    "opt.6.gf":"Хачапури хумус масабаха (без глютена)",
+    "opt.7.gf":"Хачапури аджарули (без глютена)",
+    "opt.8.gf":"Хачапури пицца (без глютена)",
+    "opt.9.gf":"Хачапури сабих (без глютена)",
+    "opt.10.gf":"Хачапури фалафель (без глютена)",
+    "opt.11.gf":"Хачапури имерули (без глютена)",
 
-"opt.21.half":"Пицца + половина добавок",
-"opt.21.one":"Пицца + 1 добавка",
-"opt.21.two":"Пицца + 2 добавки",
-"opt.21.gf":"Пицца Маргарита (без глютена)",
+    "opt.21.half":"Пицца + половина добавок",
+    "opt.21.one":"Пицца + 1 добавка",
+    "opt.21.two":"Пицца + 2 добавки",
+    "opt.21.gf":"Пицца Маргарита (без глютена)",
 
-"opt.22.gf":"Паста томатная (без глютена)",
-"opt.23.gf":"Паста розе (без глютена)",
-"opt.24.gf":"Паста сливочно-грибная (без глютена)",
-"opt.25.gf":"Паста алио олио (без глютена)",
-"opt.base":"Regular",
+    "opt.22.gf":"Паста томатная (без глютена)",
+    "opt.23.gf":"Паста розе (без глютена)",
+    "opt.24.gf":"Паста сливочно-грибная (без глютена)",
+    "opt.25.gf":"Паста алио олио (без глютена)",
+
+    "opt.31.gf":"Малауах (без глютена) (+5)",
+    "opt.32.gf":"Зива (без глютена) (+5)",
+
+    "opt.base":"Обычный",
   },
 
   ka: {
@@ -842,7 +903,8 @@ const i18n = {
     "reviews.subtitle":"10 შეფასება ავტომატურად",
 
     "whatsapp.cta":"მაგიდის დაჯავშნა",
-    "whatsapp.message":"გამარჯობა, მინდა მაგიდის დაჯავშნა თქვენს რესტორანში. დამეხმარებით ჯავშანში?",
+    // ✅ Updated WhatsApp auto message (KA)
+    "whatsapp.message":"გამარჯობა 😊 თქვენ დაუკავშირდით რესტორან „Jerusalem House“-ს. როგორ დაგეხმაროთ?\nმაგიდის დასაჯავშნად გთხოვთ მიუთითოთ ჩამოსვლის თარიღი, ჩამოსვლის დრო და სტუმრების რაოდენობა.\n\n🙏 მადლობა",
     "modal.descPlaceholder":"კერძის აღწერა მოგვიანებით დაემატება.",
 
     "notice.service":"გთხოვთ გაითვალისწინოთ: მენიუს ფასებში არ შედის 10% მომსახურების საფასური, რომელიც დაემატება შეკვეთის საბოლოო თანხას.",
@@ -866,7 +928,6 @@ const i18n = {
     "footer.mapTitle":"რუკა",
     "footer.rights":"ყველა უფლება დაცულია",
 
-    // Names
     "item.1":"საბიხი პიტაში",
     "item.2":"ომლეტი პიტაში",
     "item.3":"ფალაფელი პიტაში",
@@ -886,7 +947,6 @@ const i18n = {
     "item.17":"შაკშუკა ტაფაზე",
     "item.18":"ჰუმუსი მასაბახა",
     "item.19":"ჰუმუსი სოკოთი",
-    "item.20":"ჰუმუსი ჭარხლით",
     "item.21":"მარგარიტა პიცა",
     "item.22":"პასტა პომიდვრით",
     "item.23":"როზე პასტა",
@@ -928,7 +988,11 @@ const i18n = {
     "item.59":"გაყინული ლიმონი-პიტნა",
     "item.60":"გაზიანი სოდა (მანდარინი)",
     "item.61":"გაზიანი სოდა (მსხალი)",
+    "item.71":"ხილის მიქსი (წვენი)",
+
     "item.62":"ჩაი",
+    "item.72":"შავი ყავა",
+
     "item.63":"ლუდი",
     "item.64":"ქოშერი ღვინო (ბოთლი)",
     "item.65":"მოჰიტო (ჭიქა)",
@@ -938,7 +1002,6 @@ const i18n = {
     "item.69":"რუგელახი",
     "item.70":"სინაბონი",
 
-    // Descriptions (KA)
     "desc.1":"პიტა მოხარშული კვერცხით, შემწვარი ბადრიჯნით, კარტოფილით და თაჰინით, ახალ ბოსტნეულთან ერთად: კიტრი, პომიდორი და თეთრი კომბოსტო. იყიდება 20:00-მდე ან მარაგის ამოწურვამდე.",
     "desc.2":"ომლეტი ბოსტნეულის სალათთან ერთად: კიტრი, პომიდორი და თეთრი კომბოსტო (შეგიძლიათ დაამატოთ თაჰინი / ყველი / სახლის სოუსი). იყიდება 20:00-მდე ან მარაგის ამოწურვამდე.",
     "desc.3":"პიტა ადგილზე შემწვარი ფალაფელის ბურთულებით, თაჰინით და ახალი ბოსტნეულით: კიტრი, პომიდორი და თეთრი კომბოსტო. იყიდება 20:00-მდე ან მარაგის ამოწურვამდე.",
@@ -949,7 +1012,7 @@ const i18n = {
     "desc.8":"ტრადიციული ქართული ცომეული: კიდეებში ყველი და შიგნით პიცის შიგთავსი.",
     "desc.9":"ტრადიციული ქართული ცომეული საბიხის სტილში: მოხარშული კვერცხი, შემწვარი ბადრიჯანი, კარტოფილი და თაჰინი.",
     "desc.10":"ტრადიციული ქართული ცომეული თაჰინის ფენაზე, ახალ ბოსტნეულთან და ადგილზე შემწვარ ფალაფელთან ერთად.",
-    "desc.11":"",
+    "desc.11":"იმერული ხაჭაპური — ტრადიციული ქართული ცომეული შერჩეული ყველებით, ახლად გამომცხვარი იდეალურ ოქროსფერამდე.",
 
     "desc.12":"ახალი სალათი: წვრილად დაჭრილი კიტრი, პომიდორი და კომბოსტო.",
     "desc.13":"ახალი სალათი: მსხვილად დაჭრილი კიტრი, პომიდორი და ხახვი.",
@@ -957,10 +1020,10 @@ const i18n = {
     "desc.15":"ახალი სალათი: წვრილად დაჭრილი კიტრი, პომიდორი და კომბოსტო ბულგარული ყველით.",
     "desc.16":"ახალი სალათი წვრილად დაჭრილი ბოსტნეულით და ტოსტთან ერთად (ერთი დამატება უფასოდ). სახლის ტოსტი: ყვითელი ყველი, პიცის სოუსი, კვერცხი და დამატებები არჩევით.",
 
-    "desc.17":"ჩვენი სახლის შაკშუკა (პომიდორი და ახალი კვერცხი) ახალი პურთან ერთად. პიტა დამატებით ფასად.",
-    "desc.18":"ადგილზე მომზადებული ჰუმუსი ნუტით, 2 პიტასთან ერთად. ყველა დამატებითი პიტა დამატებით ფასად.",
-    "desc.19":"ადგილზე მომზადებული ჰუმუსი სოკოთი, სახლის პიტასთან ერთად.",
-    "desc.20":"ფერადი და გემრიელი ტוויסტი ისრაელის კლასიკაზე, სახლის პიტასთან ერთად.",
+    "desc.17":"ჩვენი სახლის შაკშუკა (პომიდორი და ახალი კვერცხი) ახალი პურთან ერთად. დამატებითი პური: +5 GEL.",
+    "desc.18":"ადგილზე მომზადებული ჰუმუსი ნუტით, 2 პიტასთან ერთად. თითოეული დამატებითი პიტა: +5 GEL.",
+    "desc.19":"ადგილზე მომზადებული ჰუმუსი სოკოთი, სახლის პიტასთან ერთად. თითოეული დამატებითი პიტა: +5 GEL.",
+
     "desc.21":"პიცა დამატებებით არჩევით: მწვანე/შავი ზეთისხილი, სოკო, ხახვი, სიმინდი, ბულგარული წიწაკა, ცხარე წიწაკა.",
     "desc.22":"სახლის პასტა ახალი პომიდვრის სოუსით.",
     "desc.23":"სახლის პასტა ახალი პომიდვრის სოუსით და ნაღებით.",
@@ -971,19 +1034,21 @@ const i18n = {
     "desc.27":"4 საშუალო ბურეკასი კარტოფილით + პატარა ისრაელის სალათი.",
     "desc.28":"4 საშუალო ბურეკასი კარტოფილით და სოკოთი + პატარა ისრაელის სალათი.",
     "desc.29":"4 საშუალო ბურეკასი „პიცა“ + პატარა ისრაელის სალათი.",
-    "desc.30":"სახლის ტოსტი: ყვითელი ყველი, პიცის სოუსი, კვერცხი და დამატებები არჩევით.",
+    "desc.30":"Jerusalem House-ის ტოსტი: ყვითელი ყველი, პიცის სოუსი, კვერცხი (ერთი დამატება უფასოდ).",
 
-    "desc.31":"",
-    "desc.32":"",
+    "desc.31":"ხელით დამზადებული იემენური სტილის შემწვარი ფენოვანი ცომი — ხრაშუნა გარედან და რბილი შიგნით. მიირთმევა ცხლად, კვერცხთან და პომიდვრის პასტასთან ერთად, როგორც სახლში.",
+    "desc.32":"თბილი ფენოვანი ცომეული თხელი ფენებით, მდიდარი ყველის შიგთავსით, გამომცხვარი ოქროსფერამდე. ხრაშუნას და ნაზის იდეალური ბალანსი ყოველ ლუკმაში. მიირთმევა კვერცხთან და პომიდვრის პასტასთან ერთად.",
+
     "desc.33":"ტემპურაში დაფარული სალმონის ნაჭრები ჩიფსთან ერთად.",
     "desc.34":"ფორელის თევზის შაურმა ჩიფსით / ბოსტნეულის სალათით. შესაძლებელია პიტის დამატება 5 GEL-ად.",
     "desc.35":"მთლიანი სიბასი ღუმელში ჩიფსით / სალათით.",
     "desc.36":"თეფში 5 ფალაფელის ბურთულით. ცელიაკიისთვის არ არის რეკომენდებული. ვეგანური კერძი.",
-    "desc.37":"შეკვეთისას გვითხარით თუ გსურთ ჩიფსი სანელებლების გარეშე. მოყვება კეტჩუპი; ყოველი დამატებითი სოუსი დამატებით ფასად.",
-    "desc.38":"კატლეტები ახლად გახეხილი ბოსტნეულით (სტაფილო, ყაბაყი, ოხრახუში).",
-    "desc.39":"",
+    "desc.37":"ოქროსფერი ხრაშუნა ჩიფსი პაპრიკისა და მარილის ზუსტი შეზავებით, მიირთმევა ცხლად კეტჩუპთან ერთად. შეგიძლიათ მოითხოვოთ სანელებლების გარეშე. დამატებითი კეტჩუპი — დამატებით ფასად.",
+    "desc.38":"5 კატლეტი ახლად გახეხილი ბოსტნეულით (სტაფილო, ყაბაყი) და ოხრახუშით).",
+    "desc.39":"ფაფუკი, რბილი თეთრი ბრინჯი, იდეალურად მოხარშული და ცხლად მიწოდებული. კლასიკური დანამატი, რომელიც ერგება ნებისმიერ კერძს.",
     "desc.40":"შემწვარი ბრინჯი სეზონური ბოსტნეულით: სტაფილო, ხახვი, თეთრი კომბოსტო, სოკო. მოყვება შემწვარი კვერცხი / შესაძლებელია კვერცხის გარეშე.",
     "desc.41":"სახლის წვნიანი ყოველდღე ყველაზე ახალი სეზონური ინგრედიენტებით. ჰკითხეთ ოფიციანტს დღევანდელ წვნიანზე!",
+
     "desc.42":"",
     "desc.43":"",
     "desc.44":"",
@@ -1011,31 +1076,38 @@ const i18n = {
     "desc.66":"",
     "desc.67":"",
     "desc.68":"",
-    "desc.69":"",
-    "desc.70":"",
+    "desc.69":"რბილი ცომის რულონები მდიდარი, ადგილზე მომზადებული შოკოლადის შიგთავსით, გამომცხვარი იდეალურ სირბილემდე. ნოსტალგიური ტკბილი ლუკმა, რომელსაც რთულია შეაჩერო.",
+    "desc.70":"რბილი, ჰაეროვანი სინაბონები დარიჩინითა და ყავისფერი შაქრით, ახალგამომცხვარი და ტკბილი გლაზურით დაფარული. ძალიან „დამოკიდებულებელი“ დესერტი!",
+    "desc.71":"",
+    "desc.72":"",
+
     "opt.5.gf":"შაკშუკა ხაჭაპური (უგლუტენო)",
-"opt.6.gf":"ჰუმუსი მასაბახა ხაჭაპური (უგლუტენო)",
-"opt.7.gf":"აჭარული ხაჭაპური (უგლუტენო)",
-"opt.8.gf":"პიცა ხაჭაპური (უგლუტენო)",
-"opt.9.gf":"საბიხი ხაჭაპური (უგლუტენო)",
-"opt.10.gf":"ფალაფელი ხაჭაპური (უგლუტენო)",
-"opt.11.gf":"იმერული ხაჭაპური (უგლუტენო)",
+    "opt.6.gf":"ჰუმუსი მასაბახა ხაჭაპური (უგლუტენო)",
+    "opt.7.gf":"აჭარული ხაჭაპური (უგლუტენო)",
+    "opt.8.gf":"პიცა ხაჭაპური (უგლუტენო)",
+    "opt.9.gf":"საბიხი ხაჭაპური (უგლუტენო)",
+    "opt.10.gf":"ფალაფელი ხაჭაპური (უგლუტენო)",
+    "opt.11.gf":"იმერული ხაჭაპური (უგლუტენო)",
 
-"opt.21.half":"პიცა + ნახევარი დამატებები",
-"opt.21.one":"პიცა + 1 დამატება",
-"opt.21.two":"პიცა + 2 დამატება",
-"opt.21.gf":"მარგარიტა პიცა (უგლუტენო)",
+    "opt.21.half":"პიცა + ნახევარი დამატებები",
+    "opt.21.one":"პიცა + 1 დამატება",
+    "opt.21.two":"პიცა + 2 დამატება",
+    "opt.21.gf":"მარგარიტა პიცა (უგლუტენო)",
 
-"opt.22.gf":"პასტა პომიდვრით (უგლუტენო)",
-"opt.23.gf":"როზე პასტა (უგლუტენო)",
-"opt.24.gf":"ნაღების-სოკოს პასტა (უგლუტენო)",
-"opt.25.gf":"ალიო ე ოლიო პასტა (უგლუტენო)",
-"opt.base":"სტანდარტული",
+    "opt.22.gf":"პასტა პომიდვრით (უგლუტენო)",
+    "opt.23.gf":"როზე პასტა (უგლუტენო)",
+    "opt.24.gf":"ნაღების-სოკოს პასტა (უგლუტენო)",
+    "opt.25.gf":"ალიო ე ოლიო პასტა (უგლუტენო)",
 
+    "opt.31.gf":"მალავახი (უგლუტენო) (+5)",
+    "opt.32.gf":"ზივა (უგლუტენო) (+5)",
+
+    "opt.base":"სტანდარტული",
   }
 };
 
 let currentLang = "he";
+
 /* =========
    PRICE VARIANTS (add-ons / gluten free etc.)
    ========= */
@@ -1066,8 +1138,13 @@ const priceVariants = {
   23: [{ labelKey: "opt.base", newPrice: prices[22] }, { labelKey: "opt.23.gf", newPrice: 60 }],
   24: [{ labelKey: "opt.base", newPrice: prices[23] }, { labelKey: "opt.24.gf", newPrice: 60 }],
   25: [{ labelKey: "opt.base", newPrice: prices[24] }, { labelKey: "opt.25.gf", newPrice: 60 }],
-};
 
+  // ✅ Malawach (31): Regular + GF (+5)
+  31: [{ labelKey: "opt.base", newPrice: prices[30] }, { labelKey: "opt.31.gf", newPrice: prices[30] + 5 }],
+
+  // ✅ Ziva (32): Regular + GF (+5)
+  32: [{ labelKey: "opt.base", newPrice: prices[31] }, { labelKey: "opt.32.gf", newPrice: prices[31] + 5 }],
+};
 
 function getEffectivePrice(item){
   return Number(selectedPriceById[item.id] ?? item.price);
@@ -1082,7 +1159,6 @@ function updateCardPrice(item){
     if (priceEl) priceEl.textContent = formatPrice(newShownPrice);
   }
 }
-
 
 /* =========
    REVIEWS (10)
@@ -1140,6 +1216,7 @@ function getReviews(lang){
   };
   return base[lang] || base.he;
 }
+
 function getStickyBarHeight(){
   const bar = document.querySelector("#stickyBar");
   if (!bar) return 0;
@@ -1189,13 +1266,13 @@ function renderCategoriesNav(){
     txt.textContent = t(c.titleKey);
     btn.appendChild(txt);
 
-btn.addEventListener("click", () => {
-  document.querySelectorAll(".catPill").forEach(x => x.classList.remove("is-active"));
-  btn.classList.add("is-active");
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".catPill").forEach(x => x.classList.remove("is-active"));
+      btn.classList.add("is-active");
 
-  const sec = document.getElementById(`sec-${c.id}`);
-  if (sec) scrollToSectionWithStickyOffset(sec);
-});
+      const sec = document.getElementById(`sec-${c.id}`);
+      if (sec) scrollToSectionWithStickyOffset(sec);
+    });
 
     nav.appendChild(btn);
   });
@@ -1250,14 +1327,12 @@ function renderMenu(){
       title.className = "card__title";
       title.textContent = t(it.nameKey);
 
-const price = document.createElement("div");
-price.className = "card__price";
-price.textContent = formatPrice(getEffectivePrice(it));
-
+      const price = document.createElement("div");
+      price.className = "card__price";
+      price.textContent = formatPrice(getEffectivePrice(it));
 
       const hint = document.createElement("div");
       hint.className = "card__hint";
-    
 
       body.appendChild(title);
       body.appendChild(price);
@@ -1336,12 +1411,12 @@ function cleanDescText(s){
 
 function openModal(item){
   modalTitle.textContent = t(item.nameKey);
-modalPrice.textContent = formatPrice(getEffectivePrice(item));
+  modalPrice.textContent = formatPrice(getEffectivePrice(item));
 
   setImageWithFallback(modalImage, `images/${item.id}`);
   modalImage.alt = t(item.nameKey);
 
-  // Center + Bold the description (as you asked)
+  // Center + Bold the description
   modalDesc.style.textAlign = "center";
   modalDesc.style.fontWeight = "700";
 
@@ -1369,6 +1444,7 @@ modal.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
 });
+
 function renderVariantButtons(item){
   const variants = priceVariants[item.id];
   // Remove old buttons if exist
@@ -1481,10 +1557,6 @@ function restartAuto(){
    SCROLLSPY (auto highlight category while scrolling)
    ========= */
 
-/* =========
-   SCROLLSPY (auto highlight category while scrolling)
-   ========= */
-
 let catObserver = null;
 let lastActiveCatId = null;
 
@@ -1495,8 +1567,7 @@ function setActiveCategory(catId){
   const btns = document.querySelectorAll(".catPill");
   btns.forEach(b => b.classList.toggle("is-active", b.dataset.target === catId));
 
-  // ✅ במקום scrollIntoView (שעלול להקפיץ את הדף למעלה)
-  // עושים גלילה אופקית בלבד בתוך שורת הקטגוריות
+  // Horizontal-only scroll inside categories row
   const nav = document.getElementById("categoriesNav");
   const activeBtn = document.querySelector(`.catPill[data-target="${catId}"]`);
   if (!nav || !activeBtn) return;
@@ -1525,7 +1596,6 @@ function setupCategoryScrollSpy(){
 
   if (!sections.length) return;
 
-  // ✅ מחשב גובה הסטיקי (קטגוריות + הודעות) כדי שה-ScrollSpy יהיה מדויק
   const stickyH = updateStickyOffsetVar();
 
   catObserver = new IntersectionObserver((entries) => {
@@ -1539,16 +1609,12 @@ function setupCategoryScrollSpy(){
     }
   }, {
     root: null,
-
-    // ✅ במקום "-45%" קבוע — עכשיו זה מותאם לגובה הסטיקי בפועל
     rootMargin: `-${stickyH + 10}px 0px -55% 0px`,
     threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
   });
 
   sections.forEach(sec => catObserver.observe(sec));
 }
-
-
 
 /* =========
    I18N helpers
@@ -1577,11 +1643,10 @@ function applyI18n(){
 
   renderCategoriesNav();
   renderMenu();
-  setupCategoryScrollSpy();   // ✅ הוספה (חייב אחרי renderMenu)
+  setupCategoryScrollSpy();
   renderReviews();
   updateWhatsAppLinks();
   setupStickyHeaderOffset();
-
 }
 
 function formatPrice(value){
@@ -1619,9 +1684,10 @@ document.querySelectorAll(".lang__btn").forEach(btn => {
 
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 window.addEventListener("resize", () => {
   updateStickyOffsetVar();
-  setupCategoryScrollSpy(); // שיתאים מחדש
+  setupCategoryScrollSpy();
 });
 
 applyI18n();
