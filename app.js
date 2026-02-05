@@ -190,7 +190,8 @@ const i18n = {
 
     "whatsapp.cta":"הזמנת מקום",
     // ✅ Updated WhatsApp auto message
-    "whatsapp.message":"שלום😊 הגעתם למסעדת \"הבית הירושלמי\" במה נוכל לסייע\nלהזמנת שולחן, אנא ציינו תאריך הגעה, שעת הגעה, ומספר סועדים\n\n🙏תודה",
+    "whatsapp.message":"שלום וברוכים הבאים למסעדת הבית הירושלמי\nלהזמנת שולחן אנא ציינו:\nתאריך הגעה, שעת הגעה ומספר סועדים\nלכל שאלה, בקשה מיוחדת או עזרה נוספת — אנחנו כאן בשבילכם",
+
 
     "notice.service":"תשומת ליבכם: המחירים בתפריט אינם כוללים דמי שירות בשיעור של 10% אשר יתווספו לסכום הכולל של ההזמנה",
     "notice.pitaTime":"כל המנות בפיתה שלנו נמכרות עד השעה 20:00 או עד גמר המלאי",
@@ -449,7 +450,7 @@ const i18n = {
 
     "whatsapp.cta":"Reserve a Table",
     // ✅ Updated WhatsApp auto message (EN)
-    "whatsapp.message":"Hello 😊 You’ve reached “Jerusalem House”. How can we help?\nTo reserve a table, please write your arrival date, arrival time, and number of guests.\n\n🙏 Thank you",
+"whatsapp.message":"Hello and welcome to Jerusalem House Restaurant\nTo reserve a table, please provide:\nArrival date, time, and number of guests\nFor any questions or special requests — we are here to help you",
     "":"Dish description will be added later.",
 
     "notice.service":"Please note: menu prices do not include a 10% service charge, which will be added to the final bill.",
@@ -681,7 +682,7 @@ const i18n = {
 
     "whatsapp.cta":"Забронировать стол",
     // ✅ Updated WhatsApp auto message (RU)
-    "whatsapp.message":"Здравствуйте 😊 Вы обратились в ресторан «Jerusalem House». Чем можем помочь?\nДля бронирования столика укажите дату прибытия, время прибытия и количество гостей.\n\n🙏 Спасибо",
+"whatsapp.message":"Здравствуйте и добро пожаловать в ресторан Jerusalem House\nДля бронирования стола укажите:\nДату, время и количество гостей\nПо любым вопросам и особым запросам — мы всегда готовы помочь",
     "":"Описание блюда будет добавлено позже.",
 
     "notice.service":"Обратите внимание: цены в меню не включают сервисный сбор 10%, который будет добавлен к итоговой сумме заказа.",
@@ -904,7 +905,7 @@ const i18n = {
 
     "whatsapp.cta":"მაგიდის დაჯავშნა",
     // ✅ Updated WhatsApp auto message (KA)
-    "whatsapp.message":"გამარჯობა 😊 თქვენ დაუკავშირდით რესტორან „Jerusalem House“-ს. როგორ დაგეხმაროთ?\nმაგიდის დასაჯავშნად გთხოვთ მიუთითოთ ჩამოსვლის თარიღი, ჩამოსვლის დრო და სტუმრების რაოდენობა.\n\n🙏 მადლობა",
+"whatsapp.message":"მოგესალმებით და კეთილი იყოს თქვენი მობრძანება Jerusalem House რესტორანში\nმაგიდის დასაჯავშნად გთხოვთ მიუთითოთ:\nჩამოსვლის თარიღი, დრო და სტუმრების რაოდენობა\nნებისმიერი კითხვის ან განსაკუთრებული მოთხოვნის შემთხვევაში — მზად ვართ დაგეხმაროთ",
     "":"კერძის აღწერა მოგვიანებით დაემატება.",
 
     "notice.service":"გთხოვთ გაითვალისწინოთ: მენიუს ფასებში არ შედის 10% მომსახურების საფასური, რომელიც დაემატება შეკვეთის საბოლოო თანხას.",
