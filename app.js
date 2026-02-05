@@ -187,6 +187,7 @@ const i18n = {
 
     "reviews.title":"לקוחות ממליצים",
     "reviews.subtitle":"10 המלצות שמתחלפות אוטומטית",
+    "badge.gf":"יש אפשרות ללא גלוטן",
 
     "whatsapp.cta":"הזמנת מקום",
     // ✅ Updated WhatsApp auto message
@@ -447,6 +448,7 @@ const i18n = {
 
     "reviews.title":"Customer Reviews",
     "reviews.subtitle":"10 reviews rotating automatically",
+    "badge.gf":"Gluten-free option available",
 
     "whatsapp.cta":"Reserve a Table",
     // ✅ Updated WhatsApp auto message (EN)
@@ -679,6 +681,7 @@ const i18n = {
 
     "reviews.title":"Отзывы гостей",
     "reviews.subtitle":"10 отзывов автоматически",
+    "badge.gf":"Есть вариант без глютена",
 
     "whatsapp.cta":"Забронировать стол",
     // ✅ Updated WhatsApp auto message (RU)
@@ -899,6 +902,7 @@ const i18n = {
     "cat.hot":"ცხელი სასმელები",
     "cat.alcohol":"ალკოჰოლი",
     "cat.desserts":"დესერტები",
+    "badge.gf":"შესაძლებელია უგლუტენო ვარიანტი",
 
     "reviews.title":"კლიენტების შეფასებები",
     "reviews.subtitle":"10 შეფასება ავტომატურად",
@@ -1324,9 +1328,18 @@ function renderMenu(){
       const body = document.createElement("div");
       body.className = "card__body";
 
-      const title = document.createElement("h3");
-      title.className = "card__title";
-      title.textContent = t(it.nameKey);
+const title = document.createElement("h3");
+title.className = "card__title";
+title.textContent = t(it.nameKey);
+
+// Gluten-free label (only if item has a .gf variant)
+if (priceVariants[it.id]?.some(v => String(v.labelKey).includes(".gf"))){
+  const gf = document.createElement("div");
+  gf.className = "card__gluten";
+  gf.textContent = t("badge.gf");
+  title.appendChild(gf);
+}
+
 
       const price = document.createElement("div");
       price.className = "card__price";

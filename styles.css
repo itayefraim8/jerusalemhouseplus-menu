@@ -761,3 +761,16 @@ img{max-width:100%;display:block}
     filter: none !important;
   }
 }
+/* Gluten free note under item name */
+.card__gluten{
+  margin-top:4px;
+  font-size:12px;
+  font-weight:800;
+  color:#8b6a2b;
+  text-align:center;
+  letter-spacing:.2px;
+}
+
+@media (max-width:560px){
+  .card__gluten{ font-size:11px; }
+}
