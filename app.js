@@ -450,7 +450,7 @@ const i18n = {
     "whatsapp.cta":"Reserve a Table",
     // ✅ Updated WhatsApp auto message (EN)
     "whatsapp.message":"Hello 😊 You’ve reached “Jerusalem House”. How can we help?\nTo reserve a table, please write your arrival date, arrival time, and number of guests.\n\n🙏 Thank you",
-    "modal.descPlaceholder":"Dish description will be added later.",
+    "":"Dish description will be added later.",
 
     "notice.service":"Please note: menu prices do not include a 10% service charge, which will be added to the final bill.",
     "notice.pitaTime":"All our pita dishes are available until 20:00 or while stock lasts.",
@@ -682,7 +682,7 @@ const i18n = {
     "whatsapp.cta":"Забронировать стол",
     // ✅ Updated WhatsApp auto message (RU)
     "whatsapp.message":"Здравствуйте 😊 Вы обратились в ресторан «Jerusalem House». Чем можем помочь?\nДля бронирования столика укажите дату прибытия, время прибытия и количество гостей.\n\n🙏 Спасибо",
-    "modal.descPlaceholder":"Описание блюда будет добавлено позже.",
+    "":"Описание блюда будет добавлено позже.",
 
     "notice.service":"Обратите внимание: цены в меню не включают сервисный сбор 10%, который будет добавлен к итоговой сумме заказа.",
     "notice.pitaTime":"Все блюда в пите доступны до 20:00 или пока есть в наличии.",
@@ -905,7 +905,7 @@ const i18n = {
     "whatsapp.cta":"მაგიდის დაჯავშნა",
     // ✅ Updated WhatsApp auto message (KA)
     "whatsapp.message":"გამარჯობა 😊 თქვენ დაუკავშირდით რესტორან „Jerusalem House“-ს. როგორ დაგეხმაროთ?\nმაგიდის დასაჯავშნად გთხოვთ მიუთითოთ ჩამოსვლის თარიღი, ჩამოსვლის დრო და სტუმრების რაოდენობა.\n\n🙏 მადლობა",
-    "modal.descPlaceholder":"კერძის აღწერა მოგვიანებით დაემატება.",
+    "":"კერძის აღწერა მოგვიანებით დაემატება.",
 
     "notice.service":"გთხოვთ გაითვალისწინოთ: მენიუს ფასებში არ შედის 10% მომსახურების საფასური, რომელიც დაემატება შეკვეთის საბოლოო თანხას.",
     "notice.pitaTime":"ყველა ჩვენი პიტას კერძი იყიდება 20:00-მდე ან მარაგის ამოწურვამდე.",
@@ -1421,7 +1421,7 @@ function openModal(item){
   modalDesc.style.fontWeight = "700";
 
   const possible = t(item.descKey, true);
-  const finalText = cleanDescText(possible) || t("modal.descPlaceholder");
+  const finalText = cleanDescText(possible) || t("");
   renderVariantButtons(item);
 
   modalDesc.textContent = finalText;
