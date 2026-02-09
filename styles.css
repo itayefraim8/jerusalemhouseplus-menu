@@ -782,3 +782,16 @@ body{
 
   background-size: cover;
 }
+html, body{
+  height: 100%;
+}
+
+body{
+  background-image:
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+    url("./images/bg-home.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
