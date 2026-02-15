@@ -47,14 +47,14 @@ const prices = [
   2,2,2,2,5,7,7,7,6,7,7,7,10,10,10,8,8,25,9,9,10, // 43-63
   15,                       // 64
   80,45,20,25,25,45,45,     // 65-71 (original 65-70 + one extra)
-  6                          // 72 Black Coffee
+  10                          // 72 Black Coffee
 ].slice(0, 72);
 
 // ✅ Fix specific new items prices (ensure correct):
 // 71 Fruit Mix Juice = 8
 prices[70] = 8;
 // 72 Black Coffee = 10
-prices[71] = 10;
+prices[71] = 6;
 
 // Build items list
 const items = [
