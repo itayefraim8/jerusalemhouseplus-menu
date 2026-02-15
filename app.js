@@ -54,7 +54,7 @@ const prices = [
 // 71 Fruit Mix Juice = 8
 prices[70] = 8;
 // 72 Black Coffee = 10
-prices[71] = 6;
+prices[71] = 10;
 
 // Build items list
 const items = [
